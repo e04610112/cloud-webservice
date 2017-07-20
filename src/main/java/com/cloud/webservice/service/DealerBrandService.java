@@ -12,21 +12,26 @@ import java.util.List;
 
 
 /**
+ * eureka服务调用
  * Created by yuanjinglin on 17/7/18.
  */
 @Service
 public class DealerBrandService {
-    @Autowired
-    RestTemplate restTemplate;
+//    @Autowired
+//    RestTemplate restTemplate;
     final String SERVICE_NAME="spring-boot-mybatis-demo";
 
-    @HystrixCommand(fallbackMethod = "fallbackSearchAll")
-    public List<DealerBrand> searchAll(){
-       List<DealerBrand> list= restTemplate.getForObject("http://"+SERVICE_NAME+"/dealerBrand/queryAll", List.class);
-        System.out.println(list.size());
-        return list;
-    }
-
+   // @HystrixCommand(fallbackMethod = "fallbackSearchAll")
+//    public List<DealerBrand> searchAll(){
+//       List<DealerBrand> list= restTemplate.getForObject("http://"+SERVICE_NAME+"/dealerBrand/queryAll", List.class);
+//        System.out.println(list.size());
+//        return list;
+//    }
+//   public List<DealerBrand> searchAll(){
+//       List<DealerBrand> list= restTemplate.getForEntity("http://"+SERVICE_NAME+"/dealerBrand/queryAll", List.class).getBody();
+//        System.out.println(list.size());
+//        return list;
+//    }
     /**
      * 返回需与上面的一致,否则调用会报异常
      * @return

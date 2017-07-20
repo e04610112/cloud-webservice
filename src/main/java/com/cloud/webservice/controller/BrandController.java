@@ -1,6 +1,7 @@
 package com.cloud.webservice.controller;
 
 import com.cloud.webservice.controller.vo.DealerBrand;
+import com.cloud.webservice.service.DealerBrandConsulService;
 import com.cloud.webservice.service.DealerBrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,13 +18,15 @@ import java.util.List;
  */
 @RestController
 public class BrandController {
+//    @Autowired
+//    DealerBrandService dealerBrandService;
     @Autowired
-    DealerBrandService dealerBrandService;
+    private DealerBrandConsulService dealerBrandConsulService;
 
     @RequestMapping(value="/brand")
     public List<DealerBrand> readUserInfo(){
-
-        return dealerBrandService.searchAll();
+        //return dealerBrandService.searchAll();
+        return dealerBrandConsulService.searchAll();
 
 
     }
